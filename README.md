@@ -1,7 +1,7 @@
 session-recording
 =========
 
-This role configures a system for terminal session recording.
+This role configures a system for terminal session recording..
 
 Requirements
 ------------
