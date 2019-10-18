@@ -1,4 +1,4 @@
-session-recording
+recording
 =========
 
 This role configures a system for terminal session recording.
@@ -13,39 +13,39 @@ Role Variables
 
 Configure session recording with SSSD, the preferred way of managing recorded users or groups:
 
-- `use_sssd` (default: `True`)
+- `recording_use_sssd` (default: `True`)
 
 Configure SSSD recording scope - `all` / `some` / `none`:
 
-- `scope_sssd` (default: `none`)
+- `recording_scope_sssd` (default: `none`)
 
 Comma-separated list of users to be recorded ( e.g. recordeduser, testuser1 ):
 
-- `users_sssd` (default: `""`)
+- `recording_users_sssd` (default: `""`)
 
 Comma-separated list of groups to be recorded ( e.g. recordedgroup, wheel, ):
 
-- `groups_sssd` (default: `""`)
+- `recording_groups_sssd` (default: `""`)
 
-Install`the cockpit-session-recording`package(RHEL8 only, currently):
+Install`the cockpit-session-recording`package:
 
-- `install_session_player` (default: `False`)
+- `recording_install_session_player` (default: `False`)
 
 Log writer type(output destination) of tlog-rec-session. Possible values are: `rsyslog` , `journal`:
 
-- `session_recording_output` (default: `journal`)
+- `recording_output` (default: `journal`)
 
 ElasticSearch hostname, used when session recording is configured to send to ElasticSearch through rsyslog:
 
-- `elastic_host` (default: `localhost`)
+- `recording_elastic_host` (default: `localhost`)
 
 Restart the Cockpit service:
 
-- `restart_cockpit` (default: `False`)
+- `recording_restart_cockpit` (default: `False`)
 
 Enable Cockpit to start at system boot (this will not start Cockpit right away, only after reboot)
 
-- `enable_cockpit` (default: `False`)
+- `recording_enable_cockpit` (default: `False`)
 
 
 
@@ -62,13 +62,13 @@ Example Playbook
   become: yes
   hosts: all
   roles:
-    - role: session-recording
+    - role: recording
       vars:
-          scope_sssd: "some"
-          users_sssd: "recordeduser"
-          install_session_player: True
-          restart_cockpit: True
-          enable_cockpit: True
+          recording_scope_sssd: "some"
+          recording_users_sssd: "recordeduser"
+          recording_install_session_player: True
+          recording_restart_cockpit: True
+          recording_enable_cockpit: True
 ~~~
 Testing
 -------

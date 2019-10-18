@@ -1,10 +1,10 @@
 ---
-use_sssd: True
-scope_sssd: none
-users_sssd: ""
-groups_sssd: ""
-install_session_player: False
-session_recording_output: journal
-elastic_host: localhost
-restart_cockpit: False
-enable_cockpit: False
+recording_use_sssd: True
+recording_scope_sssd: none
+recording_users_sssd: ""
+recording_groups_sssd: ""
+recording_install_session_player: False
+recording_output: journal
+recording_elastic_host: localhost
+recording_restart_cockpit: False
+recording_enable_cockpit: False

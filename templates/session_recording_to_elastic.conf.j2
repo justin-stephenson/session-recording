@@ -14,7 +14,7 @@ template(name="tlog" type="list") {
 if $programname == "tlog" then {
         action(name="tlog-elasticsearch"
                    type="omelasticsearch"
-                   server="{{ elastic_host }}"
+                   server="{{ recording_elastic_host }}"
                    searchIndex="tlog-rsyslog"
                    searchType="tlog"
                    bulkmode="on"

@@ -1,10 +1,10 @@
 ---
-sssd_scopes: {
+recording_sssd_scopes: {
   "all": "all",
   "some": "some",
   "none": "none",
 }
-session_recording_writer: {
+recording_writer: {
   "rsyslog": "syslog",
   "journal": "journal"
 }

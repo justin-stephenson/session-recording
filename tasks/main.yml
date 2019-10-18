@@ -9,25 +9,25 @@
 - name: install cockpit session player
   package:
     name: cockpit-session-recording
-  when: install_session_player
+  when: recording_install_session_player
 
 - name: enable cockpit.socket
   service:
     name: cockpit.socket
     enabled: yes
-  when: enable_cockpit
+  when: recording_enable_cockpit
 
 - name: enable cockpit.service
   service:
     name: cockpit.service
     enabled: yes
-  when: enable_cockpit
+  when: recording_enable_cockpit
 
 - name: restart cockpit
   service:
     name: cockpit
     state: restarted
-  when: restart_cockpit
+  when: recording_restart_cockpit
 
 - name: get the rpm package facts
   package_facts:
@@ -42,7 +42,7 @@
     mode: 0600
     force: no
   when:
-    - use_sssd
+    - recording_use_sssd
     - ansible_facts.packages.sssd[0].version < "2.1"
   notify: restart sssd
 
@@ -53,7 +53,7 @@
     owner: root
     group: root
     mode: 0600
-  when: use_sssd
+  when: recording_use_sssd
   notify: restart sssd
 
 - name: configure tlog rec session
@@ -71,5 +71,5 @@
     owner: root
     group: root
     mode: 0600
-  when: session_recording_output == "rsyslog"
+  when: recording_output == "rsyslog"
   notify: restart rsyslog

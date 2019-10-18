@@ -5,17 +5,17 @@
   tasks:
     - block:
         - import_role:
-            name: session-recording
+            name: recording
             when: false
     - assert:
         that: "vars[item] is defined"
       loop:
-        - use_sssd
-        - scope_sssd
-        - users_sssd
-        - groups_sssd
-        - install_session_player
-        - session_recording_output
-        - elastic_host
-        - restart_cockpit
-        - enable_cockpit
+        - recording_use_sssd
+        - recording_scope_sssd
+        - recording_users_sssd
+        - recording_groups_sssd
+        - recording_install_session_player
+        - recording_output
+        - recording_elastic_host
+        - recording_restart_cockpit
+        - recording_enable_cockpit
